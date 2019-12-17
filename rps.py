@@ -51,7 +51,7 @@ class RPSTrainer:
             action_utility[0 if other_action == NUM_ACTIONS - 1 else other_action + 1] = 1
             action_utility[NUM_ACTIONS - 1 if other_action == 0 else other_action - 1] = -1
             
-            self.regret_sum = action_utility - action_utility[my_action]
+            self.regret_sum += action_utility - action_utility[my_action]
             
     def get_average_strategy(self):
         avg_strategy = np.zeros(NUM_ACTIONS)
